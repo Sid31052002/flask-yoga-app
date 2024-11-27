@@ -4,9 +4,9 @@ pipeline {
     environment {
         // Define environment variables
         PROJECT_DIR = "flask-yoga-app"
-        DEPLOY_SERVER = "your-server-ip"
-        DEPLOY_USER = "deploy-user"
-        DEPLOY_PATH = "/var/www/yoga-app"
+        DEPLOY_SERVER = "172.20.0.223"  // Your local system's IP address
+        DEPLOY_USER = "adarsh16"        // Your local system username
+        DEPLOY_PATH = "/home/adarsh16/yoga-app"  // Your deployment folder path
     }
 
     stages {
