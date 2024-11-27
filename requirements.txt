@@ -3,5 +3,5 @@ opencv-python==4.7.0.72
 mediapipe==0.10.0
 matplotlib==3.7.1
 numpy<2
-pytest==7.0.1
+
 
