@@ -4,6 +4,7 @@ import mediapipe as mp
 import math
 import matplotlib.pyplot as plt
 
+
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -12,6 +13,7 @@ mp_pose = mp.solutions.pose
 
 # Setting up the Pose function
 pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, model_complexity=1)
+
 
 # Initializing mediapipe drawing class, useful for annotation.
 mp_drawing = mp.solutions.drawing_utils 
@@ -163,13 +165,21 @@ def classifyPose(landmarks, output_image, display=False):
     # Check if it is the warrior II pose or the T pose.
     # As for both of them, both arms should be straight and shoulders should be at the specific angle.
     #----------------------------------------------------------------------------------------------------------------
+    # Initialize flag to prevent repeated audio playback
     
+
     if (165 < left_knee_angle < 195) and (165 < right_knee_angle < 195) \
-        and (130 < left_elbow_angle < 180) and (175 < right_elbow_angle < 220) \
-        and (100 < left_shoulder_angle < 200) and (50 < right_shoulder_angle < 130):
+            and (130 < left_elbow_angle < 180) and (175 < right_elbow_angle < 220) \
+            and (100 < left_shoulder_angle < 200) and (50 < right_shoulder_angle < 130):
         
-        # Specify the label of the pose as Trikonasana Pose
+        # Specify the label of the pose as T Pose
         label = 'T Pose'
+
+
+        
+        
+        
+
     #----------------------------------------------------------------------------------------------------------------
     
     # Check if the both arms are straight.
