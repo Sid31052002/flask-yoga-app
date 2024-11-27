@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 // Deploy your application here
-                sh 'docker run -d -p 5000:5000 flask-yoga-app'
+                sh 'docker run -d -p 5001:5000 flask-yoga-app'
             }
         }
     }
