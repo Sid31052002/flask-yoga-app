@@ -1,37 +1,35 @@
 pipeline {
     agent any
+    environment {
+        PATH = "${PATH}:/var/lib/jenkins/.local/bin"  // Add this line to include the local bin directory
+    }
     stages {
         stage('Checkout SCM') {
             steps {
-                // Specify the correct branch 'main' here
                 git branch: 'main', url: 'https://github.com/Sid31052002/flask-yoga-app.git'
             }
         }
-        
+
         stage('Install Dependencies') {
             steps {
-                // Install dependencies if required, for example:
                 sh 'pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                // Run your tests here
-                sh 'pytest'
+                sh 'pytest'  // This will now work as pytest is in the PATH
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                // Build Docker image if necessary
                 sh 'docker build -t flask-yoga-app .'
             }
         }
 
         stage('Deploy Application') {
             steps {
-                // Deploy your application here
                 sh 'docker run -d -p 5000:5000 flask-yoga-app'
             }
         }
