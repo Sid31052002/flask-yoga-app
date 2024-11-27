@@ -1,57 +1,46 @@
 pipeline {
     agent any
-
     stages {
         stage('Checkout SCM') {
             steps {
-                git 'https://github.com/Sid31052002/flask-yoga-app.git'
+                // Specify the correct branch 'main' here
+                git branch: 'main', url: 'https://github.com/Sid31052002/flask-yoga-app.git'
             }
         }
-
+        
         stage('Install Dependencies') {
             steps {
-                script {
-                    sh '''
-                    python3 -m venv venv
-                    . venv/bin/activate
-                    pip install -r requirements.txt
-                    pip install pytest
-                    '''
-                }
+                // Install dependencies if required, for example:
+                sh 'pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                script {
-                    sh '''
-                    . venv/bin/activate
-                    pytest || echo "Tests failed"
-                    '''
-                }
+                // Run your tests here
+                sh 'pytest'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                echo "Building Docker image"
-                // Add your Docker build steps here
+                // Build Docker image if necessary
+                sh 'docker build -t flask-yoga-app .'
             }
         }
 
         stage('Deploy Application') {
             steps {
-                echo "Deploying application"
-                // Add your deployment steps here
+                // Deploy your application here
+                sh 'docker run -d -p 5000:5000 flask-yoga-app'
             }
         }
     }
-
     post {
         always {
             echo 'Pipeline execution completed!'
         }
         failure {
             echo 'Deployment failed.'}
-    }
+            }
 }
