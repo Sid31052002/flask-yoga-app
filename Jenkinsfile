@@ -63,7 +63,6 @@ pipeline {
             echo 'Deployment succeeded!'
         }
         failure {
-            echo 'Deployment failed.'
-        }
-    }
+            echo 'Deployment failed.'}
+    }
 }
