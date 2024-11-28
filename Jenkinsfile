@@ -63,7 +63,6 @@ pipeline {
                          <p><a href="${env.BUILD_URL}">Click here</a> to view the build details and logs.</p>""",
                 to: "${RECIPIENT_EMAIL}",
                 mimeType: 'text/html'
-            )
-        }
-    }
+            )}
+            }
 }
