@@ -35,7 +35,7 @@
           <button class="btn">Get Started</button>
         </div>
         <div class="header__image">
-          <img src="static/img/header.png" alt="header" />
+          <img src="static/img/header.jpg" alt="header" />
         </div>
       </header>
   
@@ -362,9 +362,18 @@
         </div>
             <div class="try-it-out">
                 <a href="{{ url_for('yoga_try') }}">
-                    <button>TRY IT OUT</button>
+                    <button>Try Poses</button>
                 </a>
+                <button onclick="openWebsite()">Tutorials</button>
             </div>
+            
+
+    <script>
+        function openWebsite() {
+            // Replace the URL with the website you want to open
+            window.location.href = "https://fit-nu-team.netlify.app/";
+        }
+    </script>
             
             </div>
   
