@@ -4,7 +4,7 @@ pipeline {
         // Define environment variables for reusable configuration
         IMAGE_NAME = 'flask-yoga-app'
         CONTAINER_PORT = '5000'
-        HOST_PORT = '5002'
+        HOST_PORT = '5003'
         RECIPIENT_EMAIL = 'siddharthvermaofficial3105@gmail.com' // Replace with the actual recipient email
     }
     stages {
