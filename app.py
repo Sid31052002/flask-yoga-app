@@ -19,17 +19,6 @@ pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, model
 mp_drawing = mp.solutions.drawing_utils 
 
 def detectPose(image, pose, display=True):
-    '''
-    This function performs pose detection on an image.
-    Args:
-        image: The input image with a prominent person whose pose landmarks needs to be detected.
-        pose: The pose setup function required to perform the pose detection.
-        display: A boolean value that is if set to true the function displays the original input image, the resultant image, 
-                and the pose landmarks in 3D plot and returns nothing.
-    Returns:
-        output_image: The input image with the detected pose landmarks drawn.
-        landmarks: A list of detected landmarks converted into their original scale.
-    '''
     
     # Create a copy of the input image.
     output_image = image.copy()
@@ -256,7 +245,7 @@ def classifyPose(landmarks, output_image, display=False):
 # Release the VideoCapture object and close the windows
 def webcam_feed():
     # Initialize the VideoCapture object to read from the webcam
-    camera_video = cv2.VideoCapture(0)
+    camera_video = cv2.VideoCapture(1)
     camera_video.set(3, 1380)
     camera_video.set(4, 960)
 
