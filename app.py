@@ -164,11 +164,6 @@ def classifyPose(landmarks, output_image, display=False):
         # Specify the label of the pose as T Pose
         label = 'T Pose'
 
-
-        
-        
-        
-
     #----------------------------------------------------------------------------------------------------------------
     
     # Check if the both arms are straight.
